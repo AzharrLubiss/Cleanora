@@ -21,6 +21,8 @@ class LayananForm
                     ->required(),
                 TextInput::make('estimasi_waktu')
                     ->label('Estimasi Waktu')
+                    ->numeric()
+                    ->suffix('Hari')
                     ->required(),
                 TextArea::make('deskripsi')
                     ->label('Deskripsi Layanan')

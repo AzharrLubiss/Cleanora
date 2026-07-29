@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Users\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
@@ -10,39 +11,43 @@ use Filament\Tables\Table;
 
 class UsersTable
 {
-    public static function configure(Table $table): Table
+    public static function table(Table $table): Table
     {
         return $table
             ->columns([
+
                 TextColumn::make('name')
                     ->searchable(),
+
                 TextColumn::make('email')
-                    ->label('Email address')
                     ->searchable(),
-                TextColumn::make('email_verified_at')
-                    ->dateTime()
-                    ->sortable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('no_hp'),
+
                 TextColumn::make('role')
-                    ->searchable(),
+                    ->badge(),
+
+                TextColumn::make('created_at')
+                    ->date(),
+
             ])
-            ->filters([
-                //
-            ])
+
             ->recordActions([
+
                 EditAction::make(),
+
+                DeleteAction::make(),
+
             ])
+
             ->toolbarActions([
+
                 BulkActionGroup::make([
+
                     DeleteBulkAction::make(),
+
                 ]),
+
             ]);
     }
 }

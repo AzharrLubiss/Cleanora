@@ -8,7 +8,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\SelectFilter;
 
 class PesanansTable
 {
@@ -21,11 +21,9 @@ class PesanansTable
                     ->searchable(),
 
                 TextColumn::make('user.name')
-                    ->label('Pelanggan')
-                    ->searchable(),
+                    ->label('Pelanggan'),
 
-                TextColumn::make('layanan.nama_layanan')
-                    ->label('Layanan'),
+                TextColumn::make('layanan.nama'),
 
                 TextColumn::make('berat')
                     ->suffix(' Kg'),
@@ -33,51 +31,50 @@ class PesanansTable
                 TextColumn::make('total_harga')
                     ->money('IDR'),
 
+
                 TextColumn::make('status')
-                    ->badge()
-                    ->color(fn (string $state): string => match ($state) {
-
-                        'menunggu' => 'gray',
-
-                        'dicuci' => 'warning',
-
-                        'dikeringkan' => 'info',
-
-                        'disetrika' => 'primary',
-
-                        'siap_diambil' => 'success',
-
-                        'selesai' => 'danger',
-
-                        default => 'gray',
-                    }),
+                    ->badge(),
 
                 TextColumn::make('tanggal_masuk')
                     ->date(),
 
             ])
 
+
             ->filters([
+
                 SelectFilter::make('status')
                     ->options([
-                        'menunggu' => 'Menunggu',
-                        'dicuci' => 'Dicuci',
-                        'dikeringkan' => 'Dikeringkan',
-                        'disetrika' => 'Disetrika',
-                        'siap_diambil' => 'Siap Diambil',
-                        'selesai' => 'Selesai',
+
+                        'menunggu'=>'Menunggu',
+                        'dicuci'=>'Dicuci',
+                        'dikeringkan'=>'Dikeringkan',
+                        'disetrika'=>'Disetrika',
+                        'siap_diambil'=>'Siap Diambil',
+                        'selesai'=>'Selesai',
+
                     ]),
+
             ])
+
 
             ->recordActions([
+
                 EditAction::make(),
+
                 DeleteAction::make(),
+
             ])
 
+
             ->toolbarActions([
+
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+
+                DeleteBulkAction::make(),
+
                 ]),
+
             ]);
     }
 }

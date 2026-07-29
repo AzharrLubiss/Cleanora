@@ -42,7 +42,7 @@ class PesananResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return PesanansTable::configure($table);
+        return PesanansTable::table($table);
     }
 
     public static function getRelations(): array

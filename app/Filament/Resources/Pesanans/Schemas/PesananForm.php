@@ -14,9 +14,9 @@ use Filament\Schemas\Schema;
 
 class PesananForm
 {
-    public static function form(Form $form): Form
+    public static function configure(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
 
                 TextInput::make('kode_pesanan')
@@ -33,7 +33,7 @@ class PesananForm
 
                 Select::make('layanan_id')
                     ->label('Layanan')
-                    ->relationship('layanan', 'nama_layanan')
+                    ->relationship('layanan', 'nama')
                     ->searchable()
                     ->preload()
                     ->live()

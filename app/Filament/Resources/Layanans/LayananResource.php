@@ -29,7 +29,7 @@ class LayananResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return LayanansTable::configure($table);
+        return LayanansTable::table($table);
     }
 
     public static function getRelations(): array

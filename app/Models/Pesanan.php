@@ -7,11 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Pesanan extends Model
 {
     protected $fillable = [
+        'kode_pesanan',
         'user_id',
         'layanan_id',
         'berat',
+        'harga_per_kg',
         'total_harga',
         'status',
+        'tanggal_masuk',
+        'tanggal_selesai',
+        'catatan',
     ];
     
     public function user()
