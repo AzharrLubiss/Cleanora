@@ -18,6 +18,11 @@ class UserForm
                     ->label('Email address')
                     ->email()
                     ->required(),
+                TextInput::make('nomor_whatsapp')
+                    ->label('Nomor WhatsApp')
+                    ->tel()
+                    ->required()
+                    ->placeholder('contoh: 6281234567890'),
                 DateTimePicker::make('email_verified_at'),
                 TextInput::make('password')
                     ->password()

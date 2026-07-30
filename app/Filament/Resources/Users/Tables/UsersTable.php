@@ -22,7 +22,9 @@ class UsersTable
                 TextColumn::make('email')
                     ->searchable(),
 
-                TextColumn::make('no_hp'),
+                TextColumn::make('no_whatsapp')
+                    ->label('No Whatsapp')
+                    ->searchable(),
 
                 TextColumn::make('role')
                     ->badge(),

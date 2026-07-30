@@ -11,6 +11,7 @@ use Filament\Schemas\Components\Form;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
+use Illuminate\Database\Eloquent\Builder;
 
 class PesananForm
 {
@@ -24,9 +25,14 @@ class PesananForm
                     ->disabled()
                     ->dehydrated(),
 
+
                 Select::make('user_id')
                     ->label('Pelanggan')
-                    ->relationship('user', 'name')
+                    ->relationship(
+                        name: 'user',
+                        titleAttribute: 'name',
+                        modifyQueryUsing: fn (Builder $query) => $query->where('role', 'pelanggan')
+                    )
                     ->searchable()
                     ->preload()
                     ->required(),
