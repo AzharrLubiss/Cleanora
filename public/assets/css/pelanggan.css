@@ -413,3 +413,38 @@ section {
     transform: translateY(-6px);
     box-shadow: 0 16px 30px rgba(13, 110, 253, 0.1) !important;
 }
+
+/* ==========================
+   Dashboard
+========================== */
+
+.card{
+
+    border-radius:18px;
+
+}
+
+.card-body{
+
+    padding:30px;
+
+}
+
+.card i{
+
+    font-size:55px;
+
+}
+
+.card-header{
+
+    border-radius:18px 18px 0 0 !important;
+
+}
+
+.table td,
+.table th{
+
+    vertical-align:middle;
+
+}

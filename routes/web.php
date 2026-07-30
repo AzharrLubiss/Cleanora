@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -20,10 +21,12 @@ Route::get('/layanan', [HomeController::class, 'layanan'])->name('layanan');
 |--------------------------------------------------------------------------
 */
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
+Route::get('/dashboard', [PelangganController::class, 'dashboard'])
+    ->middleware('auth')
+    ->name('dashboard');
+Route::get('/pesanan/create', function () {
+    return 'Halaman Form Pesanan (Coming Soon)';
+})->name('pesanan.create');
 /*
 |--------------------------------------------------------------------------
 | Profile Breeze
