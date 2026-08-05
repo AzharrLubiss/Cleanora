@@ -4,6 +4,17 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\ProfileController;
+use App\Services\FonnteService;
+
+Route::get('/test-wa', function () {
+
+    FonnteService::send(
+        '6285269060494',
+        'Tes notifikasi laundry Laravel'
+    );
+
+    return 'terkirim';
+});
 
 /*
 |--------------------------------------------------------------------------
