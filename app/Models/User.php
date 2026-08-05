@@ -17,6 +17,7 @@ use Illuminate\Notifications\Notifiable;
     'email',
     'password',
     'role',
+    'nomor_whatsapp',
 ])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable implements FilamentUser

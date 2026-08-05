@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Pesanans\Schemas;
 
 use App\Models\Layanan;
+use App\Models\User;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextArea;
@@ -35,7 +36,27 @@ class PesananForm
                     )
                     ->searchable()
                     ->preload()
+                    ->live()
+                    ->afterStateUpdated(function ($state, Set $set) {
+
+                        $user = User::find($state);
+
+                        $set('nomor_whatsapp', $user?->nomor_whatsapp);
+
+                    })
                     ->required(),
+
+                TextInput::make('nomor_whatsapp')
+                    ->label('Nomor WhatsApp')
+                    ->readOnly()
+                    ->dehydrated(false)
+                    ->afterStateHydrated(function ($component, $state, $record) {
+
+                        if ($record) {
+                            $component->state($record->user?->nomor_whatsapp);
+                        }
+
+                    }),
 
                 Select::make('layanan_id')
                     ->label('Layanan')
@@ -82,7 +103,6 @@ class PesananForm
                     ->options([
                         'menunggu' => 'Menunggu',
                         'dicuci' => 'Dicuci',
-                        'dikeringkan' => 'Dikeringkan',
                         'disetrika' => 'Disetrika',
                         'siap_diambil' => 'Siap Diambil',
                         'selesai' => 'Selesai',
