@@ -19,9 +19,6 @@ class PesananObserver
                 'dicuci' =>
                     "Halo {$pesanan->user->name}, laundry Anda sedang dicuci.",
 
-                'dikeringkan' =>
-                    "Halo {$pesanan->user->name}, laundry Anda sedang dikeringkan.",
-
                 'disetrika' =>
                     "Halo {$pesanan->user->name}, laundry Anda sedang disetrika.",
 

@@ -26,8 +26,10 @@
                     </p>
 
                     <div class="d-flex flex-wrap gap-3 align-items-center">
-                        <a href="#" class="btn btn-primary-custom shadow-sm">
-                            <i class="bi bi-basket2 me-2"></i> Pesan Laundry
+                        <a href="{{ auth()->check() ? route('pesanan.create') : route('login') }}"
+                        class="btn btn-primary-custom shadow-sm">
+                            <i class="bi bi-basket2 me-2"></i>
+                            Pesan Laundry
                         </a>
 
                         <a href="{{ route('layanan') }}" class="btn btn-outline-secondary rounded-pill px-4 py-2 fw-semibold">
@@ -108,7 +110,7 @@
                 <div class="card h-100 border-0 shadow-sm p-3 feature-card">
                     <div class="card-body">
                         <div class="icon-shape bg-warning-subtle text-warning rounded-3 mb-3">
-                            <i class="bi bi-sparkles fs-4"></i>
+                            <i class="bi bi-stars fs-4"></i>
                         </div>
                         <h5 class="fw-bold mb-2">Bersih & Harum</h5>
                         <p class="text-muted small mb-0">Menggunakan deterjen premium dan pewangi tahan lama.</p>
@@ -168,7 +170,7 @@
                                     <small class="fs-6 text-muted fw-normal">/Kg</small>
                                 </h4>
                             </div>
-                            <a href="#" class="btn btn-outline-primary btn-sm rounded-circle p-2">
+                            <a href="{{ auth()->check() ? route('pesanan.create') : route('login') }}" class="btn btn-outline-primary btn-sm rounded-circle shadow-sm p-1 px-3">
                                 <i class="bi bi-chevron-right"></i>
                             </a>
                         </div>
@@ -235,7 +237,7 @@
             <div class="position-relative z-1 max-w-600 mx-auto">
                 <h2 class="fw-bold mb-3">Siap Merasakan Layanan Laundry Premium?</h2>
                 <p class="mb-4 text-white-50">Percayakan pakaian Anda kepada kami. Nikmati hari Anda tanpa terbebani cucian menumpuk.</p>
-                <a href="#" class="btn btn-light btn-lg rounded-pill px-5 fw-bold text-primary shadow-sm">
+                <a href="{{ auth()->check() ? route('pesanan.create') : route('login') }}" class="btn btn-light btn-lg rounded-pill px-5 fw-bold text-primary shadow-sm">
                     Pesan Sekarang
                 </a>
             </div>

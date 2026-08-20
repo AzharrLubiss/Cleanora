@@ -1,10 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PelangganController;
+use App\Http\Controllers\PesananController;
 use App\Http\Controllers\ProfileController;
 use App\Services\FonnteService;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/test-wa', function () {
 
@@ -32,12 +33,23 @@ Route::get('/layanan', [HomeController::class, 'layanan'])->name('layanan');
 |--------------------------------------------------------------------------
 */
 
-Route::get('/dashboard', [PelangganController::class, 'dashboard'])
-    ->middleware('auth')
-    ->name('dashboard');
-Route::get('/pesanan/create', function () {
-    return 'Halaman Form Pesanan (Coming Soon)';
-})->name('pesanan.create');
+Route::middleware('auth')->group(function () {
+
+    Route::get('/dashboard', [PelangganController::class, 'dashboard'])
+        ->name('dashboard');
+
+    Route::get('/pesanan/create', [PesananController::class, 'create'])
+        ->name('pesanan.create');
+
+    Route::post('/pesanan', [PesananController::class, 'store'])
+        ->name('pesanan.store');
+
+    Route::get('/pesanan', [PesananController::class, 'index'])
+        ->name('pesanan.index');
+
+    Route::get('/pesanan/{pesanan}', [PesananController::class, 'show'])
+        ->name('pesanan.show');
+});
 /*
 |--------------------------------------------------------------------------
 | Profile Breeze

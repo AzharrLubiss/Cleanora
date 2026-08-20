@@ -10,7 +10,7 @@
 <section class="position-relative py-5 text-white overflow-hidden"
     style="background: linear-gradient(135deg, #0d6efd, #0284c7);">
     <div class="container py-lg-4 text-center position-relative z-1">
-        <span class="badge bg-white bg-opacity-20 text-white fw-semibold px-3 py-2 rounded-pill mb-3 backdrop-blur">
+        <span class="badge bg-white bg-opacity-20 text-primary fw-semibold px-3 py-2 rounded-pill mb-3 backdrop-blur">
             <i class="bi bi-stars me-1"></i> Pilihan Terbaik Untuk Anda
         </span>
         <h1 class="fw-bold display-5 mb-2">Daftar Layanan Laundry</h1>
@@ -36,8 +36,8 @@
                             <span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-2 rounded-pill">
                                 Paket Laundry
                             </span>
-                            <div class="icon-shape bg-primary-subtle text-primary rounded-circle">
-                                <iconify-icon icon="mdi:washing-machine" width="28"></iconify-icon>
+                            <div class="icon-shape bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">
+                                <iconify-icon icon="mdi:washing-machine" width="24"></iconify-icon>
                             </div>
                         </div>
 
@@ -59,14 +59,19 @@
                             {{ $layanan->deskripsi }}
                         </p>
 
+                        <!-- Perbaikan Tombol Pesan Sekarang -->
                         <div class="pt-3 border-top mt-auto">
                             @auth
-                            <a href="#" class="btn btn-primary-custom w-100 shadow-sm text-center">
-                                <i class="bi bi-cart-plus me-1"></i> Pesan Sekarang
+                            <a href="{{ route('pesanan.create') }}"
+                            class="btn btn-primary w-100 rounded-pill py-2.5 fw-bold shadow-sm d-inline-flex align-items-center justify-content-center gap-2 transition-all">
+                                <i class="bi bi-basket2-fill fs-6"></i>
+                                Pesan Sekarang
                             </a>
                             @else
-                            <a href="#" class="btn btn-outline-primary w-100 rounded-pill py-2 fw-semibold">
-                                <i class="bi bi-box-arrow-in-right me-1"></i> Login Untuk Memesan
+                            <a href="{{ route('login') }}"
+                            class="btn btn-outline-primary w-100 rounded-pill py-2.5 fw-bold d-inline-flex align-items-center justify-content-center gap-2 transition-all">
+                                <i class="bi bi-box-arrow-in-right fs-6"></i>
+                                Login Untuk Memesan
                             </a>
                             @endauth
                         </div>
@@ -77,7 +82,7 @@
             @empty
             <div class="col-12">
                 <div class="card border-0 shadow-sm rounded-4 text-center p-5 bg-white">
-                    <div class="icon-shape bg-warning-subtle text-warning rounded-circle mx-auto mb-3" style="width: 70px; height: 70px;">
+                    <div class="icon-shape bg-warning-subtle text-warning rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
                         <i class="bi bi-exclamation-triangle fs-2"></i>
                     </div>
                     <h4 class="fw-bold text-dark">Belum Ada Layanan</h4>

@@ -10,7 +10,7 @@
     <div class="mb-4">
 
         <h2 class="fw-bold">
-            Halo, {{ $user->name }} 👋
+            Halo, {{ $user->name }} 
         </h2>
 
         <p class="text-muted">

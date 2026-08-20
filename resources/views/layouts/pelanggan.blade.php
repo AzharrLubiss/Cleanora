@@ -43,11 +43,53 @@
                             Layanan
                         </a>
                     </li>
+                    @auth
+
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Login</a>
+                        <a
+                            href="{{ route('dashboard') }}"
+                            class="nav-link"
+                        >
+                            Dashboard
+                        </a>
                     </li>
+
+                    <li class="nav-item">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <button
+                                type="submit"
+                                class="btn btn-link nav-link"
+                            >
+                                Logout
+                            </button>
+                        </form>
+                    </li>
+
+                    @else
+
+                    <li class="nav-item">
+                        <a
+                            href="{{ route('login') }}"
+                            class="nav-link"
+                        >
+                            Login
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            href="{{ route('register') }}"
+                            class="nav-link"
+                        >
+                            Register
+                        </a>
+                    </li>
+
+                    @endif
                     <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-                        <a href="#" class="btn btn-primary-custom shadow-sm">
+                        <a href="{{ auth()->check() ? route('pesanan.create') : route('login') }}" class="btn btn-primary-custom shadow-sm">
                             <i class="bi bi-bag-check me-1"></i> Pesan Laundry
                         </a>
                     </li>

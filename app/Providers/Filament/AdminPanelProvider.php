@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Widgets\LatestOrders;
 use App\Filament\Widgets\PendapatanChart;
 use App\Filament\Widgets\StatistikLaundry;
 use Filament\Http\Middleware\Authenticate;
@@ -43,6 +44,7 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 StatistikLaundry::class,
                 PendapatanChart::class,
+                LatestOrders::class,
             ])
             ->middleware([
                 EncryptCookies::class,
