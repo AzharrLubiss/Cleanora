@@ -52,7 +52,7 @@
 
                         <div class="d-flex align-items-center gap-2 mb-3 px-3 py-2 bg-light rounded-3 text-secondary small">
                             <i class="bi bi-clock-history text-primary fs-6"></i>
-                            <span>Estimasi pengerjaan: <strong>{{ $layanan->estimasi_waktu }}</strong></span>
+                            <span>Estimasi pengerjaan: <strong>{{ $layanan->estimasi_waktu }} Hari</strong></span>
                         </div>
 
                         <p class="text-muted small mb-4 flex-grow-1 line-clamp-3">

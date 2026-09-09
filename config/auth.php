@@ -42,6 +42,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [ // Tambahkan guard baru jika diperlukan
+            'driver' => 'session',
+            'provider' => 'users', // atau 'admins' jika tabelnya terpisah
+        ],
     ],
 
     /*

@@ -22,7 +22,7 @@ class UsersTable
                 TextColumn::make('email')
                     ->searchable(),
 
-                TextColumn::make('no_whatsapp')
+                TextColumn::make('nomor_whatsapp')
                     ->label('No Whatsapp')
                     ->searchable(),
 

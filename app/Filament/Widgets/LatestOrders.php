@@ -25,7 +25,7 @@ class LatestOrders extends BaseWidget
                 Tables\Columns\TextColumn::make('user.name')
                     ->label('Pelanggan'),
 
-                Tables\Columns\TextColumn::make('layanan.nama_layanan')
+                Tables\Columns\TextColumn::make('layanan.nama')
                     ->label('Layanan'),
 
                 Tables\Columns\TextColumn::make('berat')
